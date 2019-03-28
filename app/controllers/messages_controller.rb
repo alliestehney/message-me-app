@@ -6,7 +6,6 @@ class MessagesController < ApplicationController
     if message.save
       ActionCable.server.broadcast "chatroom_channel",
                                     modified_message: message_render(message)
-      redirect_to root_path
     end
   end
 
